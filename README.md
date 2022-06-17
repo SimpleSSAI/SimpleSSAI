@@ -72,6 +72,86 @@ For testing your Streams/Ads/VMAPs, please use the below sample account_id. Whil
 	"manifest": <CloudFront hosted Manifest URL>,
 	"vmapFetchTime": 0.250,
 	"sessionExpiry": null,
+	"adBreaks": [
+        {
+            "adBreakId": "preroll",
+            "startOffset": 0,
+            "duration": 61.04,
+            "endOffset": 61.04,
+            "stitchedAds": [
+                {
+                    "adId": "30001",
+                    "adDuration": 15.16,
+                    "adStartOffset": 0,
+                    "endOffset": 15.16
+                },
+                {
+                    "adId": "20002",
+                    "adDuration": 15.120000000000001,
+                    "adStartOffset": 15.16,
+                    "endOffset": 30.28
+                },
+                {
+                    "adId": "20004",
+                    "adDuration": 30.76,
+                    "adStartOffset": 30.28,
+                    "endOffset": 61.040000000000006
+                }
+            ]
+        },
+        {
+            "adBreakId": "midroll-1",
+            "startOffset": 241.92,
+            "duration": 61.04,
+            "endOffset": 302.96,
+            "stitchedAds": [
+                {
+                    "adId": "30001",
+                    "adDuration": 15.16,
+                    "adStartOffset": 241.92,
+                    "endOffset": 257.08
+                },
+                {
+                    "adId": "20002",
+                    "adDuration": 15.120000000000001,
+                    "adStartOffset": 257.08,
+                    "endOffset": 272.2
+                },
+                {
+                    "adId": "20004",
+                    "adDuration": 30.76,
+                    "adStartOffset": 272.2,
+                    "endOffset": 302.96
+                }
+            ]
+        },
+        {
+            "adBreakId": "postroll",
+            "startOffset": 1010.0799999999999,
+            "duration": 61.04,
+            "endOffset": 1071.12,
+            "stitchedAds": [
+                {
+                    "adId": "30001",
+                    "adDuration": 15.16,
+                    "adStartOffset": 1010.0799999999999,
+                    "endOffset": 1025.24
+                },
+                {
+                    "adId": "20002",
+                    "adDuration": 15.120000000000001,
+                    "adStartOffset": 1025.24,
+                    "endOffset": 1040.36
+                },
+                {
+                    "adId": "20004",
+                    "adDuration": 30.76,
+                    "adStartOffset": 1040.36,
+                    "endOffset": 1071.12
+                }
+            ]
+        }
+    ],
 	"errors": [],
 	"warnings": []
 }

@@ -9,8 +9,9 @@ SimpleSSAI provides Ad Stitching for VoD assets by calling an API and providing 
 
 Current ABR Streaming format support:
  - [x] HLS VoD
- - [ ] DASH VoD (In Development)
- - [ ] HLS Live/Event (Planned)
+ - [ ] HLS VoD-To-Live w/ Channel Assembly (In Development)
+ - [ ] HLS Live/Event Linear (Planned)
+ - [ ] DASH VoD (Planned)
  - [ ] DASH Live (Planned)
 
 ## Content Conditions & Preparation
@@ -29,7 +30,7 @@ Generally, using the same Encoder & Packager w/ the same configuration for both 
 Ad segments are always stitched into the main content's Playlists at segment boundaries - it is not possible to stitch Ads within a segment. Therefore, when encoding your content assets, be sure to insert additional Keyframes with segment splits at all Ad opportunity time boundaries. For example, take a look at this Encoding script example from the Bitmovin Encoder -> [Bitmovin SSAI Conditions Example](https://github.com/bitmovin/bitmovin-api-sdk-examples/blob/main/javascript/src/ServerSideAdInsertion.ts). In this encoding script, additional Keyframes w/ segment splits are inserted at each time point of an Ad Opportunity. This is not an absolute requirement, but if not done, the SimpleSSAI stitcher will only be able insert Ad Segments at the closest segment boundary to provided AdBreak start time - and most likely not be exact. For the best accuracy in stitching Ads, HLS SpliceInfo Markers(`#EXT-X-CUE-OUT` and `#EXT-X-CUE-IN`) should be inserted at the Ad segment boundaries from the contribution encoder/packager.
 
 ### Ad Serving:
-The Ad Decision Server should serve Ads in the form of VMAP responses that include Ad Breaks at desired `timeOffsets`. The Ad Breaks should be presented as VAST tag and each VAST document should contain a `MediaFile` that has a delivery type of `streaming` which links the URL of the HLS packaged Ad. This Ad, ad described in the above *SSAI HLS Packaging & Encoding* section, should be encoded in the same manner as the content including the Encoding Bitrate Ladder, Audio Variants, Subtitle Variants, etc..  Ad Serving best practices:
+The Ad Decision Server should serve Ads in the form of VMAP responses that include Ad Breaks at desired `timeOffsets`. The Ad Breaks should be presented as VAST tags and each VAST document should contain a `MediaFile` that has a delivery type of `streaming` which links the URL of the HLS packaged Ad. This Ad, as described in the above *SSAI HLS Packaging & Encoding* section, should be encoded in the same manner as the content including the Encoding Bitrate Ladder, Audio Variants, Subtitle Variants, etc..  Ad Serving best practices:
  - VMAPs are most efficient when using InLine(`<InLine>`) VAST tags for the Ad Breaks.
 	 - Wrapper/VASTAdTagURI are allowed but significantly increase response time.
 	 - Max number of allowed `<Wrapper>` redirects is 7

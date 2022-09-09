@@ -56,7 +56,7 @@ JSON Payload:
 
 For testing your Streams/Ads/VMAPs, please use the below sample account_id. While testing, if you come across any issues, please fill out a GitHub Issue. Streams can encoded and packaged in many different ways, and it is very possible we have not yet taken into account all possibilities.
 
-#### Request:
+#### Request: POST: https://2ddkncp0bh.execute-api.us-east-2.amazonaws.com/Stage/hls
 ```
 {
 	"hls_stream": "https://slightly-private.s3.amazonaws.com/SimpleSSAI_Content/2022-05-16T02%3A56%3A25.837Z/manifest.m3u8",
